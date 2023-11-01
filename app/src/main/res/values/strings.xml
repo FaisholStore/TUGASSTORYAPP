@@ -1,0 +1,49 @@
+<resources>
+   <string name="app_name">TUGASSTORYAPP</string>
+   <string name="title_activity_login">LoginActivity</string>
+   <string name="prompt_email">Email</string>
+   <string name="prompt_password">Password</string>
+   <string name="action_sign_in">Sign in or register</string>
+   <string name="action_sign_in_short">Sign in</string>
+   <string name="welcome">"Welcome !"</string>
+   <string name="invalid_username">Not a valid username</string>
+   <string name="invalid_password">Password must be >5 characters</string>
+   <string name="login_failed">"Login failed"</string>
+   <string name="Email_protect">"Email Harus Valid"</string>
+   <string name="email_created">Email telah terdaftar</string>
+   <string name="email">Email</string>
+   <string name="password">Password</string>
+   <string name="belum_punya_akun">belum punya akun</string>
+   <string name="sign_in">Sign</string>
+   <string name="sign_up">Signup</string>
+   <string name="login">Login</string>
+   <string name="logo_dicoding_story">app logo dicoding</string>
+   <string name="camera">Take Camera</string>
+   <string name="gallery">Gallery</string>
+   <string name="deskripsi"> Deskripsi Story</string>
+   <string name="upload">Upload</string>
+   <string name="gambar_hasil_upload">Hasil Upload Gambar</string>
+
+   <!-- styles.xml -->
+   <style name="by_creating">
+      <item name="android:textSize">14sp</item>
+      <item name="android:textColor">#252525</item>
+   </style>
+   <!-- strings.xml -->
+   <string name="by_creating">
+by creating a free account.
+</string>
+   <string name="register_akun">Register akun</string>
+   <string name="logotegister">logotegister</string>
+   <string name="nama">Nama</string>
+   <string name="masukan_nama_yang_benar">Masukan nama yang benar</string>
+   <string name="sudah_punya_akun">Sudah Punya Akun ?</string>
+   <string name="user_name">UserName</string>
+   <string name="user_desc">User Deskripsi</string>
+   <string name="desc_img_story">Deskripsi Image Story</string>
+   <string name="user_not_found">User Tidak Di temukan</string>
+   <string name="logout">Logout</string>
+   <string name="add_story">Klik Untuk Fhoto</string>
+   <string name="erordeskripsi">Jangan Di Kosongkan Deskripsinya</string>
+   <string name="please_input_image">Masukan Gambar Terlebih Dahulu</string>
+</resources>
