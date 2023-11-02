@@ -12,5 +12,5 @@
       android:id="@+id/add_story"
       android:icon="@drawable/baseline_add_to_photos_24"
       android:title="@string/add_story"
-      app:showAsAction="collapseActionView|ifRoom" />
+      app:showAsAction="collapseActionView|always" />
 </menu>

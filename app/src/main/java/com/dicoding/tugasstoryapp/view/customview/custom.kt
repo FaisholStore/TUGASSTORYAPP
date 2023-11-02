@@ -43,7 +43,7 @@ class custom: AppCompatEditText {
                 } else {
                     error = null
                 }
-            } else if (id == R.id.login_password) {
+            } else if (id == R.id.Edt_register_Password) {
                 // Check if it's more than 8 characters and contains at least one symbol
                 if (s.toString().length < 8 || !s.toString().contains(Regex("[!@#\$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]"))) {
                     error = "Password harus lebih dari 8 karakter dan mengandung setidaknya 1 simbol"
