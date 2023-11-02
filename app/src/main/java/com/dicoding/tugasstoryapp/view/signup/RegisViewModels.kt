@@ -8,13 +8,12 @@ import com.dicoding.tugasstoryapp.Response.ErrorResponse
 import com.dicoding.tugasstoryapp.Response.RegisterResponse
 import com.dicoding.tugasstoryapp.data.Api.ApiConfig
 import com.dicoding.tugasstoryapp.data.Load.RegisterLoad
-import com.dicoding.tugasstoryapp.data.Models.UserPref
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RegisViewModels(private val preference: UserPref) : ViewModel() {
+class RegisViewModels : ViewModel() {
     private val _register = MutableLiveData<Boolean>()
     val register: LiveData<Boolean> = _register
 

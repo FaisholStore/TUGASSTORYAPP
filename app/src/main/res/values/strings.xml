@@ -46,4 +46,6 @@ by creating a free account.
    <string name="add_story">Klik Untuk Fhoto</string>
    <string name="erordeskripsi">Jangan Di Kosongkan Deskripsinya</string>
    <string name="please_input_image">Masukan Gambar Terlebih Dahulu</string>
+    <string name="masukan_email_yang_benar">Masukan Email Yang benar</string>
+   <string name="masukan_password_yang_benar">Masukan Password Yang benar</string>
 </resources>

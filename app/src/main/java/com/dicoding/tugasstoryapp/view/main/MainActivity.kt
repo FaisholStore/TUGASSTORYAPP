@@ -12,7 +12,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.tugasstoryapp.R
 import com.dicoding.tugasstoryapp.Response.StoryItem
-import com.dicoding.tugasstoryapp.data.Models.UserPref
+import com.dicoding.tugasstoryapp.data.Models.UserPreference
 import com.dicoding.tugasstoryapp.data.Models.dataStore
 import com.dicoding.tugasstoryapp.databinding.ActivityMainBinding
 import com.dicoding.tugasstoryapp.view.Adapter.StoryAdapter
@@ -21,10 +21,13 @@ import com.dicoding.tugasstoryapp.view.login.LoginActivity
 import com.dicoding.tugasstoryapp.view.story.AddStoryActivity
 
 class MainActivity : AppCompatActivity() {
-    private  lateinit var binding : ActivityMainBinding
+
+    private lateinit var binding: ActivityMainBinding
+
     private val mainViewModel by viewModels<MainViewModel> {
-        ViewModelFactory(UserPref.getInstance(dataStore))
+        ViewModelFactory(UserPreference.getInstance(dataStore))
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -36,10 +39,12 @@ class MainActivity : AppCompatActivity() {
             setupView()
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.add_story -> AddStoryActivity.start(this)
@@ -66,14 +71,9 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun setRecycleView(storyItems: List<StoryItem>) {
-        with(binding) {
-            val manager = LinearLayoutManager(this@MainActivity)
-            rvStory.apply {
-                adapter = StoryAdapter(storyItems)
-                layoutManager = manager
-            }
-        }
+    private fun setupView() {
+        binding.root.isRefreshing = false
+        mainViewModel.getStories()
     }
 
     private fun setupViewModel() {
@@ -90,9 +90,14 @@ class MainActivity : AppCompatActivity() {
         binding.rvStory.isVisible = !value
     }
 
-    private fun setupView() {
-        binding.root.isRefreshing = false
-        mainViewModel.getStories()
+    private fun setRecycleView(list: List<StoryItem>) {
+        with(binding) {
+            val manager = LinearLayoutManager(this@MainActivity)
+            rvStory.apply {
+                adapter = StoryAdapter(list)
+                layoutManager = manager
+            }
+        }
     }
 
     companion object {

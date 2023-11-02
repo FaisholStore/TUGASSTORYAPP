@@ -58,7 +58,7 @@
       app:layout_constraintTop_toBottomOf="@id/tv_login" />
 
    <com.dicoding.tugasstoryapp.view.customview.custom
-      android:id="@+id/login_password"
+      android:id="@+id/edLoginPassword"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
@@ -83,9 +83,9 @@
       android:layout_marginTop="32dp"
       android:text="@string/sign_in"
       android:fontFamily="@font/montserratbold"
-      app:layout_constraintEnd_toEndOf="@id/login_password"
-      app:layout_constraintStart_toStartOf="@id/login_password"
-      app:layout_constraintTop_toBottomOf="@id/login_password"
+      app:layout_constraintEnd_toEndOf="@id/edLoginPassword"
+      app:layout_constraintStart_toStartOf="@id/edLoginPassword"
+      app:layout_constraintTop_toBottomOf="@id/edLoginPassword"
       tools:text="Sign In" />
 
    <com.google.android.material.divider.MaterialDivider
@@ -128,5 +128,5 @@
       app:layout_constraintBottom_toBottomOf="@id/btn_sign_in"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/login_password" />
+      app:layout_constraintTop_toBottomOf="@id/edLoginPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

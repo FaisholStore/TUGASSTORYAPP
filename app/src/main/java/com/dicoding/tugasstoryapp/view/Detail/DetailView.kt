@@ -41,8 +41,8 @@ class DetailView : ViewModel() {
                 _loading.value = false
                 if (response.isSuccessful) {
                     val responseBody = response.body()
-                    if (responseBody != null && responseBody.error!!) {
-                        _detailstorie.value = responseBody.story ?: StoryItem()
+                    if (responseBody != null && !responseBody.error!!) {
+                        _detailstorie.value = responseBody. story ?: StoryItem()
                         Log.d(TAG, responseBody.message.toString())
                     } else {
                         _snackBarText.value = Event(response.message())

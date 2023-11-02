@@ -2,12 +2,12 @@ package com.dicoding.tugasstoryapp.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.tugasstoryapp.data.Models.UserPref
+import com.dicoding.tugasstoryapp.data.Models.UserPreference
 import com.dicoding.tugasstoryapp.view.login.LoginViewModels
 import com.dicoding.tugasstoryapp.view.main.MainViewModel
 import com.dicoding.tugasstoryapp.view.welcome.WelcomeViewModel
 
-class ViewModelFactory(private val preference: UserPref) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory(private val preference: UserPreference) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
         return when {

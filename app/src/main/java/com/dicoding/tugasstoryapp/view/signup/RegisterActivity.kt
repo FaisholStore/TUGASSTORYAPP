@@ -120,20 +120,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                val password = s.toString()
-                val passwordLength = password.length
-                val hasUpperCase = password.any { it.isUpperCase() }
-                val hasLowerCase = password.any { it.isLowerCase() }
-                val hasDigit = password.any { it.isDigit() }
-                val hasSpecialChar = password.any { !it.isLetterOrDigit() }
-
-                val isPasswordValid = passwordLength >= 8 &&
-                        hasUpperCase &&
-                        hasLowerCase &&
-                        hasDigit &&
-                        hasSpecialChar
-
-                binding.btnSignUp.isEnabled = isPasswordValid
+                binding.btnSignUp.isEnabled = s.toString().length >= 8
             }
 
         })

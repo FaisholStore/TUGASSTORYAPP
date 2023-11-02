@@ -10,14 +10,14 @@ import com.dicoding.tugasstoryapp.Response.LoginResponse
 import com.dicoding.tugasstoryapp.data.Api.ApiConfig
 import com.dicoding.tugasstoryapp.data.Load.LoginPayload
 import com.dicoding.tugasstoryapp.data.Models.UserModel
-import com.dicoding.tugasstoryapp.data.Models.UserPref
+import com.dicoding.tugasstoryapp.data.Models.UserPreference
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModels(private val preference: UserPref) : ViewModel() {
+class LoginViewModels(private val pref: UserPreference) : ViewModel() {
     private val _login = MutableLiveData<Boolean>()
     val login: LiveData<Boolean> = _login
 
@@ -27,10 +27,10 @@ class LoginViewModels(private val preference: UserPref) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private fun SaveUser(user: UserModel) {
+    private fun saveUser(user: UserModel) {
         viewModelScope.launch {
             ApiConfig.setToken(user.tokenAuth)
-            preference.SaveUser(user)
+            pref.SaveUser(user)
         }
     }
 
@@ -43,14 +43,13 @@ class LoginViewModels(private val preference: UserPref) : ViewModel() {
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     val responseBody = response.body()
-                    if (responseBody != null && responseBody.error!!) {
+                    if (responseBody != null && !responseBody.error) {
                         val token = responseBody.loginResult?.token as String
                         _login.value = true
-                        SaveUser(UserModel(token, true))
+                        saveUser(UserModel(token, true))
                         _snackbarText.value = responseBody.message
                     }
-                }
-                else{
+                } else {
                     val responseBody = response.errorBody()
                     _login.value = false
                     if (responseBody != null) {
@@ -62,6 +61,7 @@ class LoginViewModels(private val preference: UserPref) : ViewModel() {
                         _snackbarText.value = response.message()
                         Log.e(TAG, "onFailure2: ${response.message()}")
                     }
+
                 }
             }
 

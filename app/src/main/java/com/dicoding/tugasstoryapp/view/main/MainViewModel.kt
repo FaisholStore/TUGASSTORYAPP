@@ -8,13 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.dicoding.tugasstoryapp.Response.GetStoriesResponse
 import com.dicoding.tugasstoryapp.Response.StoryItem
 import com.dicoding.tugasstoryapp.data.Api.ApiConfig
-import com.dicoding.tugasstoryapp.data.Models.UserPref
+import com.dicoding.tugasstoryapp.data.Models.UserPreference
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel (private val preference: UserPref): ViewModel()  {
+class MainViewModel (private val preference: UserPreference): ViewModel()  {
     private val _listStory = MutableLiveData<List<StoryItem>>()
     val listStory: LiveData<List<StoryItem>> = _listStory
 

@@ -125,7 +125,7 @@ class AddStoryActivity : AppCompatActivity() {
         createCustomTempFile(application).also {
             val photoUri = FileProvider.getUriForFile(
                 this@AddStoryActivity,
-                "com.dicoding.storyapp",
+                "com.dicoding.tugasstoryapp",
                 it
             )
             currentPhoto = it.absolutePath

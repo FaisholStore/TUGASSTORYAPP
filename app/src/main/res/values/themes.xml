@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
    <!-- Base application theme. -->
-   <style name="Base.Theme.TUGASSTORYAPP" parent="Theme.Material3.DayNight.NoActionBar">
+   <style name="Theme.TUGASSTORYAPP" parent="Theme.MaterialComponents.Light">
       <!-- Customize your light theme here. -->
       <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
       <item name="android:button">@color/ungu</item>
@@ -9,5 +9,10 @@
       <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
    </style>
 
-   <style name="Theme.TUGASSTORYAPP" parent="Base.Theme.TUGASSTORYAPP" />
+   <style name="Theme.TUGASSTORYAPP.NoStatusBar" parent="Theme.TUGASSTORYAPP" >
+   <item name="android:statusBarColor">@color/white</item>
+   <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+   <item name="windowActionBar">false</item>
+   <item name="windowNoTitle">true</item>
+   </style>
 </resources>

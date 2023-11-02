@@ -16,28 +16,6 @@ object ApiConfig {
     fun setToken(value: String){
         token = value
     }
-
-    fun getApiService(): ApiService {
-        val loggingInterceptor = if (BuilConfig.DEBUG) {
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        } else {
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
-        }
-
-        val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .addInterceptor(getHeaderInterceptor())
-            .build()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BuilConfig.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-        return retrofit.create(ApiService::class.java)
-
-    }
-
     private fun getHeaderInterceptor(): Interceptor {
         return Interceptor { chain ->
             var request = chain.request()
@@ -53,6 +31,30 @@ object ApiConfig {
             chain.proceed(request)
         }
     }
+
+
+    fun getApiService(): ApiService {
+        val loggingInterceptor = if (Const.DEBUG) {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(getHeaderInterceptor())
+            .build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(Const.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+        return retrofit.create(ApiService::class.java)
+
+    }
+
+
 
 
 }
